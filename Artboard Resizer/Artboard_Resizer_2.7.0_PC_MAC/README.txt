@@ -1,5 +1,5 @@
-ARTBOARD RESIZER 1.0
-=====================
+ARTBOARD RESIZER 2.7.0
+======================
 
 This package has separate installers for Windows and macOS.
 
@@ -36,3 +36,11 @@ NOTES
 - The Range scope accepts values such as: 1-5, 8, 12-15.
 - A range containing more than one artboard generates a new AI document with
   only the selected, resized artboards. The original is preserved.
+- When the selected artboards do not fit on one regular Illustrator canvas,
+  the output is split across several AI files automatically.
+- Envelope Distort objects are expanded into paths in the output file. An
+  envelope's mesh does not survive the save otherwise, which used to make
+  warped ribbons come back at their original size. The source file is never
+  modified, so the live envelope stays editable there.
+- Each generated file gets a matching _debug.txt listing what happened to
+  every item.
