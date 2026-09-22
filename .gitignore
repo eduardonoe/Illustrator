@@ -1,0 +1,17 @@
+# Arquivos de cliente / producao - nunca versionar
+*.ai
+*.eps
+*.pdf
+*.psd
+*_debug.txt
+Links/
+Fonts/
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Temporarios
+*.tmp
+*~

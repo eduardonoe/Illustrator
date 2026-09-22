@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Artboard Resizer</title>
+    <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+    <main class="panel-shell">
+        <header class="panel-header">
+            <div>
+                <h1>Artboard Resizer</h1>
+                <p id="documentInfo">Open an Illustrator document.</p>
+            </div>
+            <button id="refreshButton" class="icon-button" title="Refresh document information" aria-label="Refresh">&#8635;</button>
+        </header>
+
+        <section class="card">
+            <div class="section-title">Final dimensions</div>
+            <div class="dimension-grid">
+                <label>
+                    <span>Width</span>
+                    <div class="input-with-unit">
+                        <input id="widthInput" type="number" min="1" step="1" value="1920">
+                        <span>px</span>
+                    </div>
+                </label>
+                <button id="ratioButton" class="ratio-button active" title="Keep proportions" aria-label="Keep proportions">&#128279;</button>
+                <label>
+                    <span>Height</span>
+                    <div class="input-with-unit">
+                        <input id="heightInput" type="number" min="1" step="1" value="1080">
+                        <span>px</span>
+                    </div>
+                </label>
+            </div>
+            <div class="preset-row">
+                <button class="secondary-button preset" data-width="1920" data-height="1080">Full HD</button>
+                <button class="secondary-button preset" data-width="3840" data-height="2160">4K UHD</button>
+                <button class="secondary-button preset" data-width="4096" data-height="2160">DCI 4K</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="section-title">Scope</div>
+            <label class="radio-row">
+                <input type="radio" name="scope" value="all" checked>
+                <span>All artboards</span>
+            </label>
+            <label class="radio-row">
+                <input type="radio" name="scope" value="active">
+                <span>Active artboard only</span>
+            </label>
+            <label class="radio-row">
+                <input type="radio" name="scope" value="range">
+                <span>Range</span>
+            </label>
+            <div id="rangeField" class="range-field" hidden>
+                <label for="rangeInput">Artboard numbers</label>
+                <input id="rangeInput" type="text" inputmode="text" autocomplete="off" placeholder="Example: 1-5, 8, 12-15">
+                <p>Use commas and hyphens. Numbering starts at 1. A multi-artboard range creates a new file containing only that selection.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="section-title">Options</div>
+            <label class="check-row">
+                <input id="scaleArtwork" type="checkbox" checked>
+                <span>Scale artwork with artboards</span>
+            </label>
+            <label class="check-row">
+                <input id="scaleAppearance" type="checkbox" checked>
+                <span>Scale strokes, patterns and effects</span>
+            </label>
+            <label class="check-row">
+                <input id="createCopy" type="checkbox" checked>
+                <span>Create a new file and preserve the original</span>
+            </label>
+        </section>
+
+        <button id="resizeButton" class="primary-button" disabled>Resize document</button>
+
+        <div id="status" class="status neutral" role="status">Waiting for an Illustrator document.</div>
+        <footer id="versionFooter">Version 1.0</footer>
+    </main>
+    <script src="js/panel.js"></script>
+</body>
+</html>
